@@ -13,6 +13,7 @@ constructor(desc,zip,city,street,image){
     this.city = city;
     this.street = street;
     this.image = image;
+    locArray.push(this);
 }
 
 display(){
@@ -32,6 +33,7 @@ constructor(desc,zip,city,streeet,image,link,tel){
     super(desc,zip,city,streeet,image);
     this.link = link;
     this.tel = tel;
+    locArray.push(this);
 }
 display1(){
     return `${this.display()}link: ${this.link} Tel: ${this.tel}`
@@ -46,6 +48,18 @@ class Events extends Locations {
     link:string;
     date:any;       //check again of displaying mb day/date etc//
     entry:number;
-
+constructor(desc,zip,city,streeet,image,link,date,entry){
+    super(desc,zip,city,streeet,image);
+    this.link=link;
+    this.date=date;
+    this.entry=entry;
+    locArray.push(this);
+}
+display2(){
+    return `${this.display()} link: ${this.link} date: ${this.date} entry: ${this.entry} €`
+}
 
 }
+
+let newEvent = new Events ("zarrah live Rap",1030,"Budapest","king streeet 98","imamgeelink","websitelinkevent.com", "25.11.2020",54)
+console.log(newEvent.display2());
