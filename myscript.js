@@ -27,6 +27,9 @@ var Locations = /** @class */ (function () {
     Locations.prototype.renderLoc = function () {
         return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n<img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n<div class=\"card-body center-block border\">\n  <h5 class=\"card-title\">" + this.name + "</h5>\n  <p class=\"card-text\">" + this.disc + "</p>\n  <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n</div>\n<div class=\"card-footer d-flex justify-content-center border\">\n  <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n</div>\n</div>\n";
     };
+    Locations.prototype.locCarousel = function () {
+        return "<div class=\"carousel-item\">\n    <img src=\"" + this.image + "\" class=\"d-block w-100\" alt=\"" + this.name + "\">\n    <div class=\"carousel-caption d-none d-md-block text-dark border bg-light\">\n      <h5>" + this.name + "</h5>\n      <p>" + this.disc + "</p>\n    </div>\n  </div>";
+    };
     return Locations;
 }());
 new Locations("Stephansdom", "Stephansdom halt", 1010, "Vienna", "Stephansplatz 3", "img/stephansdom.jpg");
@@ -47,7 +50,7 @@ var Restaurants = /** @class */ (function (_super) {
         return _this;
     }
     Restaurants.prototype.renderRest = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n    <div class=\"card-body center-block border\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p class=\"card-text\"><a href=\"" + this.link + "\"></a></p>\n      <p class=\"card-text\">" + this.tel + "</p>\n      <p class=\"card-text\">" + this.cousine + "</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>\n    ";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n    <div class=\"card-body center-block border\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">" + this.tel + "</p>\n      <p class=\"card-text\">" + this.cousine + "</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>\n    ";
     };
     return Restaurants;
 }(Locations));
@@ -55,22 +58,32 @@ new Restaurants("Des Stuweer", "urig beisln", 1010, "Vienna", "Stephansplatz 3",
 new Restaurants("Hansy", "schlechte Küche dafür unfreundliche Bedienung", 1020, "Vienna", "Heinestraße 42", "img/rest2.jpg", "www.hansy.at", "01/backhendl", "Alt-Wienerisch");
 new Restaurants("BBQ-XXL", "Große Schnitzel Große Bier", 1110, "Vienna", "Orge Street 12", "img/rest3.jpg", "www.bbqxxl.at", "01/55XXL", "Nix spezielles nur groß");
 new Restaurants("Da Heirige", "Das beste von deen vier", 1220, "Vienna", "Heirignhigl 12", "img/rest4.jpg", "www.wasistinternet.at", "01/ichhabnochfax", "Breddljausn");
-for (var i in locArray) {
+for (var i in restArray) {
     document.getElementById("restaurants").innerHTML += restArray[i].renderRest();
 }
-// class Events extends Locations {
-//     link:string;
-//     date=new Date();       //check again of displaying mb day/date etc//
-//     entry:number;
-// constructor(name,disc,zip,city,street,image,link,date,entry){
-//     super(name,disc,zip,city,street,image);
-//     this.link=link;
-//     this.date=date;
-//     this.entry=entry;
-// }
-// display2(){
-//     return `${this.renderLoc()} link: ${this.link} date: ${this.date} entry: ${this.entry} €`
-// }
-// }
-// let newEvent = new Events ("zarrah live Rap","Aus ohhr",1030,"Budapest","king streeet 98","imamgeelink","websitelinkevent.com", "25.11.2020",54)
-console.table(locArray);
+var Events = /** @class */ (function (_super) {
+    __extends(Events, _super);
+    function Events(name, disc, zip, city, street, image, link, date, entry) {
+        var _this = _super.call(this, name, disc, zip, city, street, image) || this;
+        _this.date = new Date(); //check again of displaying mb day/date etc//
+        _this.link = link;
+        _this.date = date;
+        _this.entry = entry;
+        eventsArray.push(_this);
+        return _this;
+    }
+    Events.prototype.renderEvents = function () {
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top\" src=\"" + this.image + "\"alt=\"" + this.name + "\">\n    <div class=\"card-body center-block border\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">Adress: " + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">Date: " + this.date + "</p>\n      <p class=\"card-text\">Entry: " + this.entry + " \u20AC</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>";
+    };
+    return Events;
+}(Locations));
+new Events("Annoying Trumpet Sound", "how long will you hold?", 1030, "Wien", "Bauhausgasse 10", "img/event1.jpg", "websitelinkevent.com", "25.11.2020", 54);
+new Events("Sentimental Emo Guitar Boy", "Will cry live on stage and maybe call his ex", 1020, "Wien", "Klingengasse 12", "img/event2.jpg", "websitelinkevent.com", "01.10.2020", 12);
+new Events("How to use a facemask", "because you know you dont", 1050, "Wieen", "Virusgasse 58", "img/event3.jpg", "websitelinkevent.com", "01.02.2021", 30);
+new Events("Live Beten mit Moses", "Immer wieder erfrischend", 1010, "Jerusalem", "Im Schreinerhaus", "img/event4.jpg", "websitelinkevent.com", "25.11.2020", 25);
+for (var i in eventsArray) {
+    document.getElementById("events").innerHTML += eventsArray[i].renderEvents();
+}
+for (var i in locArray) {
+    document.getElementById("loccar").innerHTML += locArray[i].locCarousel();
+}
