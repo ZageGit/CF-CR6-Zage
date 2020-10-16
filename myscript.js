@@ -13,51 +13,57 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var locArray = [];
 var Locations = /** @class */ (function () {
-    function Locations(desc, zip, city, street, image) {
-        this.desc = desc;
+    function Locations(name, disc, zip, city, street, image) {
+        this.name = name;
+        this.disc = disc;
         this.zip = zip;
         this.city = city;
         this.street = street;
         this.image = image;
         locArray.push(this);
     }
-    Locations.prototype.display = function () {
-        return this.desc + " ZIP: " + this.zip + " City: " + this.city + "  Street: " + this.street + " " + this.image;
+    Locations.prototype.renderLoc = function () {
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n<img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n<div class=\"card-body center-block border\">\n  <h5 class=\"card-title\">" + this.name + "</h5>\n  <p class=\"card-text\">" + this.disc + "</p>\n  <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n</div>\n<div class=\"card-footer d-flex justify-content-center border\">\n  <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n</div>\n</div>\n";
     };
     return Locations;
 }());
-var newLoc = new Locations("Daham", 1020, "Vienna", "Stuwerstrasse 47", "imglink");
-console.log(newLoc.display());
+new Locations("Stephansdom", "Stephansdom halt", 1010, "Vienna", "Stephansplatz 3", "img/stephansdom.jpg");
+new Locations("Schönbrunn", "Schönbrunn,schön wie immer", 1130, "Vienna", "Schönbrunner Schloßstraße 50 ", "img/hundertwasser.jpg");
+new Locations("Schönbrunn", "Schönbrunn,schön wie immer", 1130, "Vienna", "Schönbrunner Schloßstraße 50 ", "img/riesenrad.jpg");
+new Locations("Schönbrunn", "Schönbrunn,schön wie immer", 1130, "Vienna", "Schönbrunner Schloßstraße 50 ", "img/schonbrunn.jpg");
+for (var i in locArray) {
+    document.getElementById("locations").innerHTML += locArray[i].renderLoc();
+}
 var Restaurants = /** @class */ (function (_super) {
     __extends(Restaurants, _super);
-    function Restaurants(desc, zip, city, streeet, image, link, tel) {
-        var _this = _super.call(this, desc, zip, city, streeet, image) || this;
+    function Restaurants(name, disc, zip, city, street, image, link, tel) {
+        var _this = _super.call(this, name, disc, zip, city, street, image) || this;
         _this.link = link;
         _this.tel = tel;
-        locArray.push(_this);
         return _this;
     }
     Restaurants.prototype.display1 = function () {
-        return this.display() + "link: " + this.link + " Tel: " + this.tel;
+        return this.renderLoc() + "link: " + this.link + " Tel: " + this.tel;
     };
     return Restaurants;
 }(Locations));
-var newRest = new Restaurants("The Stuwer", 1020, "Vienna", "Stuwerstrasse 50", "imglink", "restaurantwebsitelimk.com", "01-5239668");
+var newRest = new Restaurants("The Stuwer", "beste schnitzel", 1020, "Vienna", "Stuwerstrasse 50", "imglink", "restaurantwebsitelimk.com", "01-5239668");
 console.log(newRest.display1());
 var Events = /** @class */ (function (_super) {
     __extends(Events, _super);
-    function Events(desc, zip, city, streeet, image, link, date, entry) {
-        var _this = _super.call(this, desc, zip, city, streeet, image) || this;
+    function Events(name, disc, zip, city, street, image, link, date, entry) {
+        var _this = _super.call(this, name, disc, zip, city, street, image) || this;
+        _this.date = new Date(); //check again of displaying mb day/date etc//
         _this.link = link;
         _this.date = date;
         _this.entry = entry;
-        locArray.push(_this);
         return _this;
     }
     Events.prototype.display2 = function () {
-        return this.display() + " link: " + this.link + " date: " + this.date + " entry: " + this.entry + " \u20AC";
+        return this.renderLoc() + " link: " + this.link + " date: " + this.date + " entry: " + this.entry + " \u20AC";
     };
     return Events;
 }(Locations));
-var newEvent = new Events("zarrah live Rap", 1030, "Budapest", "king streeet 98", "imamgeelink", "websitelinkevent.com", "25.11.2020", 54);
+var newEvent = new Events("zarrah live Rap", "Aus ohhr", 1030, "Budapest", "king streeet 98", "imamgeelink", "websitelinkevent.com", "25.11.2020", 54);
 console.log(newEvent.display2());
+console.table(locArray);
