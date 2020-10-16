@@ -25,7 +25,7 @@ var Locations = /** @class */ (function () {
         locArray.push(this);
     }
     Locations.prototype.renderLoc = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n<img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n<div class=\"card-body center-block border\">\n  <h5 class=\"card-title\">" + this.name + "</h5>\n  <p class=\"card-text\">" + this.disc + "</p>\n  <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n</div>\n<div class=\"card-footer d-flex justify-content-center border\">\n  <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n</div>\n</div>\n";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n<img class=\"card-img-top border border-bottom-0 border-primary\" src=\"" + this.image + "\"  alt=\"\">\n<div class=\"card-body center-block border border-top-0 border-bottom-0 border-primary bg-info\">\n  <h5 class=\"card-title\">" + this.name + "</h5>\n  <p class=\"card-text\">" + this.disc + "</p>\n  <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n</div>\n<div class=\"card-footer d-flex justify-content-center border border-top-0  border-primary bg-info\">\n  <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n</div>\n</div>\n";
     };
     Locations.prototype.locCarousel = function () {
         return "<div class=\"carousel-item\">\n    <img src=\"" + this.image + "\" class=\"d-block w-100\" alt=\"" + this.name + "\">\n    <div class=\"carousel-caption d-none d-md-block text-dark border bg-light\">\n      <h5>" + this.name + "</h5>\n      <p>" + this.disc + "</p>\n    </div>\n  </div>";
@@ -50,7 +50,7 @@ var Restaurants = /** @class */ (function (_super) {
         return _this;
     }
     Restaurants.prototype.renderRest = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top\" src=\"" + this.image + "\"  alt=\"\">\n    <div class=\"card-body center-block border\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">" + this.tel + "</p>\n      <p class=\"card-text\">" + this.cousine + "</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>\n    ";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top border border-bottom-0 border-secondary\" src=\"" + this.image + "\"  alt=\"\">\n    <div class=\"card-body center-block border border-top-0 border-bottom-0 border-secondary bg-warning\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">" + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">" + this.tel + "</p>\n      <p class=\"card-text\">" + this.cousine + "</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border border-top-0 border-secondary bg-warning\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>\n    ";
     };
     return Restaurants;
 }(Locations));
@@ -73,7 +73,7 @@ var Events = /** @class */ (function (_super) {
         return _this;
     }
     Events.prototype.renderEvents = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top\" src=\"" + this.image + "\"alt=\"" + this.name + "\">\n    <div class=\"card-body center-block border\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">Adress: " + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">Date: " + this.date + "</p>\n      <p class=\"card-text\">Entry: " + this.entry + " \u20AC</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 mb-4\">\n    <img class=\"card-img-top border border-success border-bottom-0\" src=\"" + this.image + "\"alt=\"" + this.name + "\">\n    <div class=\"card-body center-block border border-top-0 border-bottom-0 border-success bg-primary\">\n      <h5 class=\"card-title\">" + this.name + "</h5>\n      <p class=\"card-text\">" + this.disc + "</p>\n      <p class=\"card-text\">Adress: " + this.zip + ", " + this.city + ", " + this.street + "</p>\n      <p><a class=\"card-text\" href=\"" + this.link + "\">Link</a></p>\n      <p class=\"card-text\">Date: " + this.date + "</p>\n      <p class=\"card-text\">Entry: " + this.entry + " \u20AC</p>\n    </div>\n    <div class=\"card-footer d-flex justify-content-center border border-top-0 border-success bg-primary\">\n      <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n    </div>\n    </div>";
     };
     return Events;
 }(Locations));

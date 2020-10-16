@@ -24,13 +24,13 @@ constructor(name,disc,zip,city,street,image){
 
 renderLoc(){
   return  `<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-<img class="card-img-top" src="${this.image}"  alt="">
-<div class="card-body center-block border">
+<img class="card-img-top border border-bottom-0 border-primary" src="${this.image}"  alt="">
+<div class="card-body center-block border border-top-0 border-bottom-0 border-primary bg-info">
   <h5 class="card-title">${this.name}</h5>
   <p class="card-text">${this.disc}</p>
   <p class="card-text">${this.zip}, ${this.city}, ${this.street}</p>
 </div>
-<div class="card-footer d-flex justify-content-center border">
+<div class="card-footer d-flex justify-content-center border border-top-0  border-primary bg-info">
   <a href="#" class="btn btn-primary">Go somewhere</a>
 </div>
 </div>
@@ -73,8 +73,8 @@ constructor(name,disc,zip,city,street,image,link,tel,cousine){
 }
 renderRest(){
     return `<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-    <img class="card-img-top" src="${this.image}"  alt="">
-    <div class="card-body center-block border">
+    <img class="card-img-top border border-bottom-0 border-secondary" src="${this.image}"  alt="">
+    <div class="card-body center-block border border-top-0 border-bottom-0 border-secondary bg-warning">
       <h5 class="card-title">${this.name}</h5>
       <p class="card-text">${this.disc}</p>
       <p class="card-text">${this.zip}, ${this.city}, ${this.street}</p>
@@ -82,7 +82,7 @@ renderRest(){
       <p class="card-text">${this.tel}</p>
       <p class="card-text">${this.cousine}</p>
     </div>
-    <div class="card-footer d-flex justify-content-center border">
+    <div class="card-footer d-flex justify-content-center border border-top-0 border-secondary bg-warning">
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>
@@ -111,8 +111,8 @@ constructor(name,disc,zip,city,street,image,link,date,entry){
 }
 renderEvents(){
     return `<div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-    <img class="card-img-top" src="${this.image}"alt="${this.name}">
-    <div class="card-body center-block border">
+    <img class="card-img-top border border-success border-bottom-0" src="${this.image}"alt="${this.name}">
+    <div class="card-body center-block border border-top-0 border-bottom-0 border-success bg-primary">
       <h5 class="card-title">${this.name}</h5>
       <p class="card-text">${this.disc}</p>
       <p class="card-text">Adress: ${this.zip}, ${this.city}, ${this.street}</p>
@@ -120,7 +120,7 @@ renderEvents(){
       <p class="card-text">Date: ${this.date}</p>
       <p class="card-text">Entry: ${this.entry} €</p>
     </div>
-    <div class="card-footer d-flex justify-content-center border">
+    <div class="card-footer d-flex justify-content-center border border-top-0 border-success bg-primary">
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
     </div>`
