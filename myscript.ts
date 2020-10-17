@@ -69,7 +69,7 @@ class Restaurants extends Locations{
     tel:any;
     cousine:string;
 constructor(name,disc,zip,city,street,image,dateCreated,timeCreated,link,tel,cousine){
-    super(name,disc,zip,city,street,image,dateCreated,timeCreated,link);
+    super(name,disc,zip,city,street,image,dateCreated,timeCreated,);
     this.link = link;
     this.tel = tel;
     this.cousine=cousine;
@@ -138,8 +138,8 @@ renderEvents(){
 
 new Events ("Annoying Trumpet Sound","how long will you hold?",1030,"Wien","Bauhausgasse 10","img/event1.jpg","10.01.2010","12:45","websitelinkevent.com", "25.11.2020",54)
 new Events ("Sentimental Emo Guitar Boy","Will cry live on stage and maybe call his ex",1020,"Wien","Klingengasse 12","img/event2.jpg","10.01.2010","12:45","websitelinkevent.com", "01.10.2020",12)
-new Events ("How to use a facemask","because you know you dont",1050,"Wieen","Virusgasse 58","img/event3.jpg","websitelinkevent.com","10.01.2010","12:45", "01.02.2021",30)
-new Events ("Live Beten mit Moses","Immer wieder erfrischend",1010,"Jerusalem","Im Schreinerhaus","img/event4.jpg","websitelinkevent.com","10.01.2010","12:45", "25.11.2020",25)
+new Events ("How to use a facemask","because you know you dont",1050,"Wieen","Virusgasse 58","img/event3.jpg","10.01.2010","12:45","websitelinkevent.com", "01.02.2021",30)
+new Events ("Live Beten mit Moses","Immer wieder erfrischend",1010,"Jerusalem","Im Schreinerhaus","img/event4.jpg","10.01.2010","12:45","websitelinkevent.com","25.11.2020",25)
 
 
 for (let i in eventsArray){

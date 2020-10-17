@@ -38,13 +38,10 @@ new Locations("Stephansdom", "Stephansdom halt", 1010, "Vienna", "Stephansplatz 
 new Locations("Schönbrunn", "Schönbrunn wie immer", 1130, "Vienna", "Schönbrunner Schloßstraße 50 ", "img/schonbrunn.jpg", "25.06.2020", "10:55");
 new Locations("Riesenrad", "Prater bam Oida", 1020, "Vienna", "Prater 1", "img/riesenrad.jpg", "27.08.2020", "08:35");
 new Locations("Hundertwasserhaus", "Echt oag", 1030, "Vienna", "Kegelgasse 36-38", "img/hundertwasser.jpg", "22.12.2020", "18:25");
-for (var i in locArray) {
-    document.getElementById("locations").innerHTML += locArray[i].renderLoc();
-}
 var Restaurants = /** @class */ (function (_super) {
     __extends(Restaurants, _super);
     function Restaurants(name, disc, zip, city, street, image, dateCreated, timeCreated, link, tel, cousine) {
-        var _this = _super.call(this, name, disc, zip, city, street, image, dateCreated, timeCreated, link) || this;
+        var _this = _super.call(this, name, disc, zip, city, street, image, dateCreated, timeCreated) || this;
         _this.link = link;
         _this.tel = tel;
         _this.cousine = cousine;
@@ -60,9 +57,6 @@ new Restaurants("Des Stuweer", "urig beisln", 1010, "Vienna", "Stephansplatz 3",
 new Restaurants("Hansy", "schlechte Küche dafür unfreundliche Bedienung", 1020, "Vienna", "Heinestraße 42", "img/rest2.jpg", "10.01.2010", "12:45", "www.hansy.at", "01/backhendl", "Alt-Wienerisch");
 new Restaurants("BBQ-XXL", "Große Schnitzel Große Bier", 1110, "Vienna", "Orge Street 12", "img/rest3.jpg", "10.01.2010", "12:45", "www.bbqxxl.at", "01/55XXL", "Nix spezielles nur groß");
 new Restaurants("Da Heirige", "Das beste von deen vier", 1220, "Vienna", "Heirignhigl 12", "img/rest4.jpg", "10.01.2010", "12:45", "www.wasistinternet.at", "01/ichhabnochfax", "Breddljausn");
-for (var i in restArray) {
-    document.getElementById("restaurants").innerHTML += restArray[i].renderRest();
-}
 var Events = /** @class */ (function (_super) {
     __extends(Events, _super);
     function Events(name, disc, zip, city, street, image, dateCreated, timeCreated, link, date, entry) {
@@ -83,10 +77,8 @@ new Events("Annoying Trumpet Sound", "how long will you hold?", 1030, "Wien", "B
 new Events("Sentimental Emo Guitar Boy", "Will cry live on stage and maybe call his ex", 1020, "Wien", "Klingengasse 12", "img/event2.jpg", "10.01.2010", "12:45", "websitelinkevent.com", "01.10.2020", 12);
 new Events("How to use a facemask", "because you know you dont", 1050, "Wieen", "Virusgasse 58", "img/event3.jpg", "websitelinkevent.com", "10.01.2010", "12:45", "01.02.2021", 30);
 new Events("Live Beten mit Moses", "Immer wieder erfrischend", 1010, "Jerusalem", "Im Schreinerhaus", "img/event4.jpg", "websitelinkevent.com", "10.01.2010", "12:45", "25.11.2020", 25);
-for (var i in eventsArray) {
-    document.getElementById("events").innerHTML += eventsArray[i].renderEvents();
-}
-for (var i in locArray) {
-    document.getElementById("loccar").innerHTML += locArray[i].locCarousel();
-}
 console.table(locArray);
+for (var i in locArray) {
+    document.getElementById("locations").innerHTML += locArray[i].renderLoc();
+}
+// locArray.sort((a, b) => b.dateCreated.localeCompare(a.dateCreated) === 0 ? b.timeCreated.localeCompare(a.timeCreated) : b.dateCreated.localeCompare(a.dateCreated));
